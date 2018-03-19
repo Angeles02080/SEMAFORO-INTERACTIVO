@@ -1,0 +1,125 @@
+int redCar = 12;  //declara que el led rojo asignado al carro se encuentra en el pin 12 del arduino
+int yellowCar = 11; //declara que el led amarillo asignado al carro se encuentra en el pin 11 del arduino
+int greenCar = 10;  //declara que el led verde asignado al carro se encuentra en el pin 10 del arduino
+int redPed = 7;  //declara que el led rojo asignado al peatón se encuentra en el pin 7 del arduino
+int greenPed = 8;  //declara que el led rojo asignado al carro se encuentra en el pin 12 del arduino
+
+int button = 2; //declara que el botón esta conectado al pin 2 del arduino
+
+int displayA = 3;  //declara que el segmento A está conectado al pin 3 del arduino
+int displayB = 4;  //declara que el segmento B está conectado al pin 4 del arduino
+int displayC = 5;  //declara que el segmento C está conectado al pin 5 del arduino
+int displayD = 1;  //declara que el segmento D está conectado al pin 1 del arduino
+int displayE = 6;  //declara que el segmento E está conectado al pin 6 del arduino
+int displayF = 9;  //declara que el segmento F está conectado al pin 9 del arduino
+int displayG = 13; //declara que el segmento G está conectado al pin 13 del arduino
+
+void setup(){  //función que se ejecuta al iniciar arduino
+pinMode(redCar, OUTPUT);  //pin rojo del carro como salida
+pinMode(yellowCar, OUTPUT); //pin amarilo del carro como salida
+pinMode(greenCar, OUTPUT);  //pin verde del carro como salida
+pinMode(redPed, OUTPUT);  //pin rojo del peaton como salida
+pinMode(greenPed, OUTPUT); //pin verde del carro como salida
+
+pinMode(button, INPUT); //botón de entrada  
+digitalWrite(greenCar, HIGH); //se enciende el led verde para el carro
+digitalWrite(redPed, HIGH); //se enciende el les rojo para el peatón
+    
+pinMode(3, OUTPUT); //entrada del display del segmento A 
+pinMode(4, OUTPUT);  //entrada del display del segmento B
+pinMode(5, OUTPUT);  //entrada del display del segmento C
+pinMode(1, OUTPUT);  //entrada del display del segmento D
+pinMode(6, OUTPUT);  //entrada del display del segmento E
+pinMode(9, OUTPUT);  //entrada del display del segmento F
+pinMode(13, OUTPUT); //entrada del display del segmento G
+}
+
+void loop(){  // Se inicia el ciclo al oprimir el botón
+int state = digitalRead(button);  
+  if(state == HIGH){    
+trocaLed();  
+    } // se cierra el if
+} // se cierra el loop
+
+void trocaLed(){  //se inicia el metodo para interactuar con los leds del carro y el peatón
+digitalWrite(greenCar, LOW); //se apaga el led verde del carro 
+digitalWrite(yellowCar, HIGH);  //se enciende el led amarillo del carro 
+delay(2000);  //tiempo de espera de 2 segundos
+  
+digitalWrite(yellowCar, LOW); //se apaga el led amarillo del carro
+digitalWrite(redCar, HIGH); //se enciende el led rojo del carro 
+delay(2000);  //tiempo de espera de 2 segundos 
+  
+digitalWrite(redPed, LOW);  //se apaga el led rojo del peatón 
+digitalWrite(greenPed, HIGH); //se enciende el led verde de peatón 
+  
+digitalWrite(displayA, LOW); //segmento A del display apagado 
+digitalWrite(displayB, LOW); //segmento B del display apagado
+digitalWrite(displayC, LOW); //segmento C del display apagado
+digitalWrite(displayD, HIGH); //segmento D del display encendido 
+digitalWrite(displayE, HIGH); //segmento E del display encendido 
+digitalWrite(displayF, LOW);  //segmento F del display apagado
+digitalWrite(displayG, LOW);  //segmento G del display apagado
+delay(1000); //tiempo de espera 1 segundo
+  
+digitalWrite(displayA, LOW); //segmento A del display apagado   
+digitalWrite(displayB, LOW);  //segmento B del display apagado
+digitalWrite(displayC, HIGH);  //segmento C del display encendido
+digitalWrite(displayD, LOW);  //segmento D del display apagado
+digitalWrite(displayE, HIGH);  //segmento E del display encendido
+digitalWrite(displayF, HIGH);  //segmento F del display encendido
+digitalWrite(displayG, LOW); //segmento G del display apagado 
+delay(1000); //tiempo de espera 1 segundo
+  
+digitalWrite(displayA, LOW);  //segmento A del display apagado 
+digitalWrite(displayB, HIGH); //segmento B del display encendido 
+digitalWrite(displayC, LOW);  //segmento C del display apagado
+digitalWrite(displayD, LOW);  //segmento D del display apagado
+digitalWrite(displayE, HIGH); //segmento E del display encendido 
+digitalWrite(displayF, LOW);  //segmento F del display apagado
+digitalWrite(displayG,LOW);  //segmento G del display apagado
+delay(1000); //tiempo de espera 1 segundo
+    
+digitalWrite(displayA, LOW); //segmento A del display apagado 
+digitalWrite(displayB, HIGH); //segmento B del display encendido  
+digitalWrite(displayC, LOW); //segmento C del display apagado 
+digitalWrite(displayD, LOW);  //segmento D del display apagado  
+digitalWrite(displayE, LOW); //segmento E del display apagado  
+digitalWrite(displayF, LOW);  //segmento F del display apagado 
+digitalWrite(displayG, HIGH); //segmento G del display encendido  
+delay(1000); //tiempo de espera 1 segundo
+
+digitalWrite(displayA, HIGH);  //segmento A del display encendido 
+digitalWrite(displayB, HIGH);  //segmento B del display encendido 
+digitalWrite(displayC, HIGH);  //segmento C del display encendido 
+digitalWrite(displayD, LOW);  //segmento D del display apagado 
+digitalWrite(displayE, HIGH);  //segmento E del display encendido 
+digitalWrite(displayF, HIGH);  //segmento F del display encendido 
+digitalWrite(displayG, LOW); //segmento G del display apagado  
+delay(1000);  //tiempo de espera 1 segundo
+  
+digitalWrite(displayA, HIGH); //segmento A del display encendido    
+digitalWrite(displayB, LOW);  //segmento B del display apagado 
+digitalWrite(displayC, LOW);  //segmento C del display apagado 
+digitalWrite(displayD, LOW);  //segmento D del display apagado 
+digitalWrite(displayE, LOW);  //segmento E del display apagado 
+digitalWrite(displayF, LOW);  //segmento F del display apagado 
+digitalWrite(displayG, LOW);  //segmento G del display apagado 
+delay(1000); //tiempo de espera 1 segundo
+  
+for(int x=0; x<3; x++){  //se inicia el ciclo
+digitalWrite(greenPed, HIGH); //se enciende el led verde del peaton   
+delay(250); //tiempo de espera 
+digitalWrite(greenPed, LOW);  //se apaga el led verde del peatón  
+delay(250);  //tiempo de espera
+} // se cierra el ciclo for  
+ 
+digitalWrite(redPed, HIGH); //se enciende el led rojo del peatoón
+delay(500);  //tiempo de espera
+digitalWrite(yellowCar, HIGH); //se enciende el led amarillo del carro  
+digitalWrite(redCar, LOW);  //se apaga el led rojo del carro
+delay(1000);  //tiempo de espera
+digitalWrite(greenCar, HIGH); //se enciende el led verde del carro 
+digitalWrite(yellowCar, LOW); //se apaga el led amarillo de carro
+ 
+  } // se cierra el metodo void trocaLed
